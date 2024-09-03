@@ -37,7 +37,7 @@ elif s_name == '':
 	print("spieces name cannot be empty.")
 	sys.exit(2)
 else:
-	infile=open('KO database and its category.keg','r')
+	infile=open('KO_database.keg','r')
 	lines = infile.readlines()
 	c_dic = defaultdict(list)
 	o_dic = defaultdict(list)
