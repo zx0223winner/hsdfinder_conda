@@ -53,14 +53,14 @@ def main(argv):
         opts, args = getopt.getopt(argv, "hi:p:l:f:t:o:", ["input_file=", "percentage_identity=", "length=", "file=",
                                                            "type=", "output_file="])
     except getopt.GetoptError:
-        print('use main.py -h to see argument options')
+        print('use hsdfinder -h to see argument options')
         sys.exit(0)
     for opt, arg in opts:
         if opt == '-h':
-            print('HSDFinder.py -i <inputfile> -p <percentage identity> -l <length> -f <pfam file> -t <type> -o '
+            print('hsdfinder -i <inputfile> -p <percentage identity> -l <length> -f <pfam file> -t <type> -o '
                   '<output file>')
             print(
-                'or use HSDFinder.py --input_file=<input file> --percentage_identity=<percentage identity> '
+                'or use hsdfinder --input_file=<input file> --percentage_identity=<percentage identity> '
                 '--length=<length> --file=<pfam file> --type=<type> --output_file=<output file>\n'
                 '-i or --input_file\t the BLAST output file \n'
                 '-p or --percentage_identity\tidentity percent e.g. For 90%, input 90.0\n'
@@ -76,14 +76,14 @@ def main(argv):
                 percentage = float(arg)
             except ValueError:
                 print("Input value error: the percentage identity must be a number.\n"
-                      "use HSDFinder.py -h to see more information.")
+                      "use hsdfinder -h to see more information.")
                 sys.exit(0)
         elif opt in ("-l", "--length"):
             try:
                 length = int(arg)
             except ValueError:
                 print("Input value error: the length must be a number.\n"
-                      "use HSDFinder.py -h to see more information.")
+                      "use hsdfinder -h to see more information.")
                 sys.exit(0)
         elif opt in ("-f", "--file"):
             pfam = arg
@@ -94,7 +94,7 @@ def main(argv):
     if length == -1:
         length = 10
     if input_file == "" or pfam == "":
-        print("no input file or no pfam file.")
+        print("no input file or no pfam file. \n use hsdfinder -h to see argument options \n try hsd_to_kegg -h to generate hsds under KEGG categories")
         sys.exit(0)
     else:
         result = operation.pfam_file_fun(input_file, percentage, length, pfam, p_type, output_file)
