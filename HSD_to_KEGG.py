@@ -13,12 +13,12 @@ try:
 	opts, args = getopt.getopt(argv, "hi:k:n:o:", ["input_file=", "ko_file=", "species_name=", "output_file="])
 except getopt.GetoptError as e:
 	print(str(e) + '. Use KEGG.py -h to see argument options')
-	sys.exit(2)
+	sys.exit(0)
 for opt, arg in opts:
 	if opt == '-h':
 		print('KEGG.py -i <HSD file> -k <Gene list file with KO annotation> -n <species name> -o <output file name>')
 		print('or use KEGG.py --input_file=<HSD file> --ko_file=<Gene list file with KO annotation> --species_name=<species name> --output_file <output file name>')
-		sys.exit()
+		sys.exit(0)
 	elif opt in ("-i", "--input_file"):
 		HSD_file = arg
 	elif opt in ("-k", "--ko_file"):
@@ -29,13 +29,13 @@ for opt, arg in opts:
 		out_file = arg
 if HSD_file == '':
 	print("no HSD file.")
-	sys.exit(2)
+	sys.exit(0)
 elif ko_file == '':
 	print("no ko file. Use -h to see argument options")
-	sys.exit(2)
+	sys.exit(0)
 elif s_name == '':
 	print("spieces name cannot be empty.")
-	sys.exit(2)
+	sys.exit(0)
 else:
 	infile=open('KO_database.keg','r')
 	lines = infile.readlines()
