@@ -54,7 +54,7 @@ def main(argv):
                                                            "type=", "output_file="])
     except getopt.GetoptError:
         print('use main.py -h to see argument options')
-        sys.exit(2)
+        sys.exit(0)
     for opt, arg in opts:
         if opt == '-h':
             print('HSDFinder.py -i <inputfile> -p <percentage identity> -l <length> -f <pfam file> -t <type> -o '
@@ -68,7 +68,7 @@ def main(argv):
                 '-f or --file\tthe InterProScan output file \n'
                 '-t or --type\ttype e.g. Pfam\n'
                 '-o or --output_file\toutput file name')
-            sys.exit()
+            sys.exit(0)
         elif opt in ("-i", "--input_file"):
             input_file = arg
         elif opt in ("-p", "--percentage_identity"):
@@ -77,14 +77,14 @@ def main(argv):
             except ValueError:
                 print("Input value error: the percentage identity must be a number.\n"
                       "use HSDFinder.py -h to see more information.")
-                sys.exit(2)
+                sys.exit(0)
         elif opt in ("-l", "--length"):
             try:
                 length = int(arg)
             except ValueError:
                 print("Input value error: the length must be a number.\n"
                       "use HSDFinder.py -h to see more information.")
-                sys.exit(2)
+                sys.exit(0)
         elif opt in ("-f", "--file"):
             pfam = arg
         elif opt in ("-t", "--type"):
@@ -95,7 +95,7 @@ def main(argv):
         length = 10
     if input_file == "" or pfam == "":
         print("no input file or no pfam file.")
-        sys.exit(2)
+        sys.exit(0)
     else:
         result = operation.pfam_file_fun(input_file, percentage, length, pfam, p_type, output_file)
         print("Output file " + result + " saved")
