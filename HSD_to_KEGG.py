@@ -4,8 +4,6 @@ import sys
 import getopt
 import os
 
-__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-
 HSD_file = ''
 ko_file = ''
 s_name = ''
@@ -116,3 +114,5 @@ else:
 					if len(temp)>0:
 						outfile.write(cc + '\t' + oo + '\t' + start_k + '\t' + ', '.join(name_list) + '\t' + s_name + '\t' + ', '.join(temp) + '\t' + str(len(temp)) +'\n')
 	outfile.close()
+
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
