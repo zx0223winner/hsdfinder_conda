@@ -57,17 +57,18 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('HSDFinder.py -i <inputfile> -p <percentage identity> -l <length> -f <pfam file> -t <type> -o '
+            print('hsdfinder -i <inputfile> -p <percentage identity> -l <length> -f <pfam file> -t <type> -o '
                   '<output file>')
             print(
-                'or use HSDFinder.py --input_file=<input file> --percentage_identity=<percentage identity> '
+                'or use hsdfinder --input_file=<input file> --percentage_identity=<percentage identity> '
                 '--length=<length> --file=<pfam file> --type=<type> --output_file=<output file>\n'
                 '-i or --input_file\t the BLAST output file \n'
                 '-p or --percentage_identity\tidentity percent e.g. For 90%, input 90.0\n'
                 '-l or --length\tlength e.g. 10\n'
                 '-f or --file\tthe InterProScan output file \n'
                 '-t or --type\ttype e.g. Pfam\n'
-                '-o or --output_file\toutput file name')
+                '-o or --output_file\toutput file name\n\n'
+                'Try other command: hsd_to_kegg -h ')
             sys.exit()
         elif opt in ("-i", "--input_file"):
             input_file = arg
